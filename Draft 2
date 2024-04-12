@@ -1,0 +1,21 @@
+voterDict = {} #so we can get all the accounts, we'll put the ID as the key and the list of votes as the value
+
+candidateList=[]
+
+def addCandidate(Name): #add them to the candidate list
+
+def register(ID):  #creates an account with a Null as the votes, puts it in voterDict
+
+def vote(ID, voteList): #sets their votes to the list
+
+def tallyVotes(voterdict, candidateList):  #returns the candidates in order, winner to loser.
+
+#I know how to use tkinter, so
+
+import tkinter as tk
+
+root = tk.Tk()
+root.title("Library")
+root.geometry('900x600')
+
+tk.mainloop()      #Magic words.
