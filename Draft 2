@@ -2,20 +2,40 @@ voterDict = {} #so we can get all the accounts, we'll put the ID as the key and 
 
 candidateList=[]
 
-def addCandidate(Name): #add them to the candidate list
+def IDgen():
+    try:
+        ID = list(voterDict.keys())[-1] + 1
+    except:
+        if 100 not in voterDict.keys():
+            ID = 100
+        else:
+            error()   #i'll make this function later
+            return None
+    return ID
 
-def register(ID):  #creates an account with a Null as the votes, puts it in voterDict
+def addCandidate(Name): #add them to the candidate list
+    print('hi')
+
+def register():  #creates an account with a None as the votes, puts it in voterDict
+    ID = IDgen()
 
 def vote(ID, voteList): #sets their votes to the list
+    print('hi')
 
 def tallyVotes(voterdict, candidateList):  #returns the candidates in order, winner to loser.
+    print('hi')
 
 #I know how to use tkinter, so
 
 import tkinter as tk
-
+import random as rand
 root = tk.Tk()
 root.title("Library")
 root.geometry('900x600')
+
+
+
+registerButton = tk.Button(root, text='register as a voter', command = register)
+registerButton.grid(column=1,row=1)
 
 tk.mainloop()      #Magic words.
