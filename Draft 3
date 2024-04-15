@@ -11,31 +11,33 @@ def IDgen():
             ID = 100
 
         else:
-            error()   #i'll make this function later
+            error()   
             return None
     return ID
 
 def addCandidate(): #add them to the candidate list
     candidate= NameEntry.get()
 
-def register():  #creates an account with a None as the votes, puts it in voterDict
+def register():
     global ID
     ID = str(IDgen())
     IDlabel = tk.Label(root, text='Your Id is '+ID)
     IDlabel.place(x=10, y=100)
     registerButton.place_forget()
+      #creates an account with a None as the votes, puts it in voterDict
 
-def vote(): #sets their votes to the list
+def vote():
     vote= clicked.get()
     id = ID
     if id==None:
         error()
-    #else:
-
-
+    else:  #sets their votes to the list
 
 def tallyVotes():  #returns the candidates in order, winner to loser.
-    print('hi')
+
+
+
+#I know how to use tkinter, so
 
 def reveal():
     if str(credentialInput.get()) == 'sudo':
@@ -52,9 +54,6 @@ def addPerson():
         drop.pack()
     else:
         error()
-
-
-#I know how to use tkinter, so
 
 import tkinter as tk
 import random as rand
