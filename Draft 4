@@ -1,0 +1,116 @@
+voterDict = {} #so we can get all the accounts, we'll put the ID as the key and the list of votes as the value
+
+candidateList=['candidates']
+
+
+def IDgen():
+    try:
+        ID= list(voterDict.keys())[-1] + 1
+    except:
+        if 100 not in voterDict.keys():
+            ID = 100
+
+        else:
+            error()
+            return None
+    return ID
+
+def addCandidate(): #add them to the candidate list
+    candidate= NameEntry.get()
+
+def register():
+    global ID
+    ID = str(IDgen())
+    IDlabel = tk.Label(root, text='Your Id is '+ID)
+    IDlabel.place(x=10, y=100)
+    registerButton.place_forget()
+    voterDict[ID] = None
+
+def vote():
+    id = ID
+    if id==None:
+        error()
+    else:  #sets their votes to the list
+        options = candidateList
+    voteList=[]
+    def ask():
+        global clicked
+        clicked = tk.StringVar()
+        clicked.set('Pick your favorite of these')
+        global drop
+        global voteButton
+        drop = tk.OptionMenu(root, clicked, *options)
+        drop.pack()
+        drop.place(relx=.5, rely=.05, anchor='center')
+        voteButton=tk.Button(root,text='Cast vote', command=answer)
+        voteButton.place(relx=.5, rely=.1, anchor='center')
+    def answer():
+        if clicked.get() != 'Pick your favorite of these':
+            voteList.append(str(clicked.get()))
+            options.remove(str(clicked.get()))
+            global drop
+            global voteButton
+            drop.remove()
+            voteButton.remove()
+            if len(options) !=0:
+                ask()
+            else:
+                voterDict[ID] = voteList
+    ask()
+
+
+def tallyVotes():  #returns the candidates in order, winner to loser.
+    None
+
+
+#I know how to use tkinter, so
+
+def reveal():
+    if str(credentialInput.get()) == 'sudo':
+        nameInput.place(relx=.7,rely=.5,anchor='center')
+        nameInputButton.place(relx=.7,rely=.45,anchor='center')
+
+def addPerson():
+    if nameInput.get() != None and nameInput.get() not in candidateList:
+        candidateList.append(str(nameInput.get()))
+        def poof():
+            tempSuccess.destroy()
+        tempSuccess= tk.Button(text='Success', command=poof)
+        tempSuccess.place(relx=.5,rely=.5)
+    else:
+        error()
+
+import tkinter as tk
+import random as rand
+root = tk.Tk()
+root.title("Library")
+root.geometry('900x600')
+
+def rmvError():
+    errorButton.place_forget()
+def error():
+    errorButton.place(relx=.5,rely=.5)
+
+ID=None
+
+
+
+
+button = tk.Button(root, text="Click to vote", command=vote)
+button.place(relx=.5, rely=.45, anchor='center')
+
+errorButton= tk.Button(text='Oops! Check your inputs.', command=rmvError)
+
+credentialInput= tk.Entry()
+credentialInput.place(rely=.7, relx=.5, anchor='center')
+
+credentialButton= tk.Button(root, text='Enter secret code', command=reveal)
+credentialButton.place(rely=.75, relx=.5, anchor='center')
+
+registerButton = tk.Button(root, text='register as a voter', command = register)
+registerButton.place(x=10,y=10)
+
+nameInput = tk.Entry()
+nameInputButton =tk.Button(root, text='Input name as a candidate', command=addPerson)
+
+tk.mainloop()      #Magic words.
