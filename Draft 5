@@ -1,6 +1,6 @@
 voterDict = {} #so we can get all the accounts, we'll put the ID as the key and the list of votes as the value
 
-candidateList=['candidates']
+candidateList=['me','joe Bob', 'Card']
 
 
 def IDgen():
@@ -32,31 +32,36 @@ def vote():
         error()
     else:  #sets their votes to the list
         options = candidateList
-    voteList=[]
-    def ask():
-        global clicked
-        clicked = tk.StringVar()
-        clicked.set('Pick your favorite of these')
-        global drop
-        global voteButton
-        drop = tk.OptionMenu(root, clicked, *options)
-        drop.pack()
-        drop.place(relx=.5, rely=.05, anchor='center')
-        voteButton=tk.Button(root,text='Cast vote', command=answer)
-        voteButton.place(relx=.5, rely=.1, anchor='center')
-    def answer():
-        if clicked.get() != 'Pick your favorite of these':
-            voteList.append(str(clicked.get()))
-            options.remove(str(clicked.get()))
+        voteList=[]
+        def ask():
+            global clicked
+            clicked = tk.StringVar()
+            clicked.set('Pick your favorite of these')
             global drop
             global voteButton
-            drop.remove()
-            voteButton.remove()
-            if len(options) !=0:
-                ask()
+            drop = tk.OptionMenu(root, clicked, *options)
+            drop.pack()
+            drop.place(relx=.5, rely=.05, anchor='center')
+            voteButton=tk.Button(root,text='Cast vote', command=answer)
+            voteButton.place(relx=.5, rely=.1, anchor='center')
+        def answer():
+            if clicked.get() != 'Pick your favorite of these':
+                voteList.append(str(clicked.get()))
+                try:
+                    options.remove(str(clicked.get()))
+                except:
+                    error()
+                global drop
+                global voteButton
+                drop.place_forget()
+                voteButton.place_forget()
+                if len(options) !=0:
+                    ask()
+                else:
+                    voterDict[ID] = voteList
             else:
-                voterDict[ID] = voteList
-    ask()
+                ask()
+        ask()
 
 
 def tallyVotes():  #returns the candidates in order, winner to loser.
@@ -69,6 +74,14 @@ def reveal():
     if str(credentialInput.get()) == 'sudo':
         nameInput.place(relx=.7,rely=.5,anchor='center')
         nameInputButton.place(relx=.7,rely=.45,anchor='center')
+        tallyButton.place(relx=.3,relyy=.5, anchor='center')
+    else:
+        try:
+            nameInput.place_forget()
+            nameInputButton.place_forget()
+            tallyButton.place_forget()
+        except:
+            None
 
 def addPerson():
     if nameInput.get() != None and nameInput.get() not in candidateList:
@@ -109,6 +122,8 @@ credentialButton.place(rely=.75, relx=.5, anchor='center')
 
 registerButton = tk.Button(root, text='register as a voter', command = register)
 registerButton.place(x=10,y=10)
+
+tallyButton= tk.Button(root, text='tally the votes', command=tallyVotes)
 
 nameInput = tk.Entry()
 nameInputButton =tk.Button(root, text='Input name as a candidate', command=addPerson)
