@@ -21,10 +21,14 @@ To get started with the Advanced STV Voting System, follow these steps:
    ```
 2. **Install Required Packages**
     Ensure you have Python installed on your system. Then install the required packages:
-    ``` pip install tkinter ```
+    ```
+   pip install tkinter
+    ```
 
-3. **Run the Application**
-   ``` python login.py ```
+4. **Run the Application**
+   ```
+   python login.py
+   ```
 
 # Usage
 1. Registering as a New User
