@@ -41,7 +41,8 @@ To get started with the Advanced STV Voting System, follow these steps:
 ## Voting
 * Select a candidate from the dropdown menu.
 * Click "Cast Vote" to submit your vote.
-* The system ensures that each user can only vote once.
+* Repeat until all candidates are exhausted; the system will prioritize the first votes while using your secondary, tertiary, etc. choices in the case that your favored candidate loses.
+* The system ensures that each user can only have one set of preferred candidates. Voting again will overwrite the previous votes.
 ## Admin Panel
 * Admins can log in using their admin credentials.
 * The admin panel allows viewing detailed logs of all votes and managing candidates.
