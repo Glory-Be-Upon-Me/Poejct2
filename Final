@@ -101,6 +101,8 @@ def start_voting_system(username):
     def cast_vote():
         if ID and clicked.get() != "Select a candidate" or 'Select your next favorite':
             global options
+            if len(voter_dict[ID]) == len[candidate_list]:
+            voterdict[ID]=[]
             voter_dict[ID].append(clicked.get())
             status_label.config(text=f'Vote cast for {clicked.get()} by Voter ID {ID}')
             options.remove(clicked.get())
