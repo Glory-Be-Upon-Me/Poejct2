@@ -109,7 +109,8 @@ def start_voting_system(username):
             update_vote_options()
             clicked.set('Select your next favorite')
             if len(options) == 0:
-                options = candidate_list
+                for i in candidate_list:
+                    options.append(i)
                 update_vote_options()
                 status_label.config(text='Done voting! Vote again to redo it.')
 
