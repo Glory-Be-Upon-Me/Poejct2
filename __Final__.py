@@ -100,6 +100,8 @@ def start_voting_system(username):
     def cast_vote():
         if ID and clicked.get() != "Select a candidate" or 'Select your next favorite':
             global options
+            if len(voter_dict[ID])==len(candidate_list):
+                voter_dict[ID]= []
             voter_dict[ID].append(clicked.get())
             status_label.config(text=f'Vote cast for {clicked.get()} by Voter ID {ID}')
             options.remove(clicked.get())
@@ -122,12 +124,6 @@ def start_voting_system(username):
     def tally_votes():  # returns the candidates in order, winner to loser.
         print(voter_dict)
         if code_entry.get() == 'sudo':
-            try:
-                for i in voter_dict.keys():
-                    if voter_dict[i] == None:
-                        voter_dict.pop(i)
-            except:
-                None
             global resultList
             resultList = []
             print(tallier(voter_dict, candidate_list))
@@ -142,11 +138,7 @@ def start_voting_system(username):
                 except:
                     None
 
-        def find_worst(
-                degree):  # search through the votes for the least popular first choice, then repeat for further choices for a tiebreaker, then choose at random for a tiebreakerbreaker
-            tempDict = {}
-            for i in candidates:
-                tempDict[i] = 0
+        def find_worst(degree, tempDict):  # search through the votes for the least popular first choice, then repeat for further choices for a tiebreaker, then choose at random for a tiebreakerbreaker
             for i in voters.values():
                 try:
                     x = i[degree]
@@ -154,18 +146,24 @@ def start_voting_system(username):
                 except:
                     None
             loser = [None, list(tempDict.values())[0] + 1]
+            tie = False
             for i in (tempDict.keys()):
-                seed = float(random.randrange(0, 2))
                 if tempDict[i] <= loser[1]:
                     loser = [i, tempDict[i]]
-                elif degree <= len(list(voters.values())[0]):
-                    loser = find_worst(degree + 1)
-                else:
-                    if seed >= 1:
+                    tie= False
+                elif tempDict[i] == loser[1]:
+                    tie= True
+                    seed = float(random.randrange(0, 2))
+                    if degree == len(candidate_list) and seed >=1:
                         loser = [i, tempDict[i]]
+            if tie == True:
+                loser = find_worst(degree+1,tempDict)
             return loser
 
-        loser = find_worst(0)
+        tempDict={}
+        for i in candidates:
+            tempDict[i] = 0
+        loser = find_worst(0,tempDict)
         resultList.append(loser[0])
         candidates.remove(str(loser[0]))
         if len(candidates) == 0:
