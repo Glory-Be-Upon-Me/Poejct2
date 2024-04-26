@@ -100,12 +100,9 @@ def start_voting_system(username):
     def cast_vote():
         if ID and clicked.get() != "Select a candidate" or 'Select your next favorite':
             global options
-            if len(voter_dict[ID]) == len(candidate_list):
-                voterdict[ID] = []
             voter_dict[ID].append(clicked.get())
             status_label.config(text=f'Vote cast for {clicked.get()} by Voter ID {ID}')
             options.remove(clicked.get())
-            print(options)
             update_vote_options()
             clicked.set('Select your next favorite')
             if len(options) == 0:
@@ -123,6 +120,7 @@ def start_voting_system(username):
             clicked.set('Select a candidate')
 
     def tally_votes():  # returns the candidates in order, winner to loser.
+        print(voter_dict)
         if code_entry.get() == 'sudo':
             try:
                 for i in voter_dict.keys():
@@ -133,6 +131,7 @@ def start_voting_system(username):
             global resultList
             resultList = []
             print(tallier(voter_dict, candidate_list))
+
 
     def tallier(voters, candidates):
         for i in voters.keys():  # remove all results not corresponding to an undecided candidate
