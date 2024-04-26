@@ -122,11 +122,11 @@ def start_voting_system(username):
             clicked.set('Select a candidate')
 
     def tally_votes():  # returns the candidates in order, winner to loser.
-        print(voter_dict)
         if code_entry.get() == 'sudo':
             global resultList
             resultList = []
             print(tallier(voter_dict, candidate_list))
+            root.destroy()
 
 
     def tallier(voters, candidates):
