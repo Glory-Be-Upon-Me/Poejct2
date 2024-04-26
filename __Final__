@@ -188,4 +188,4 @@ def start_voting_system(username):
 
 
 if __name__ == "__main__":
-    start_voting_system('Talia')
+    start_voting_system()
