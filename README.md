@@ -76,4 +76,33 @@ To get started with the Advanced STV Voting System, follow these steps:
 
 ![image](https://github.com/Glory-Be-Upon-Me/Poejct2/assets/162085036/6d458476-a73e-4c9e-86e0-9bcdeeb909d1)
 
+## Discussion
+
+### Project Issues and Challenges:
+* **Data Integrity**: Ensuring the integrity of vote data was critical. The challenge was to implement a system where votes could not only be cast securely but also counted accurately without risk of tampering.
+* **Concurrency**: Handling multiple users accessing the system simultaneously (especially in the admin and voter versions) posed challenges in ensuring that vote data remains consistent and that the user experience is seamless.
+* **Data Persistence**: Using a simple text file (user_db.txt) to manage user data and another ('votes_db.txt') for votes required careful consideration of how data is read and written to avoid issues like data corruption or loss.
+
+### Limitations:
+* **Scalability**: While the current system using text files for storage works for a small scale, it might not scale well for a larger number of users or in a more robust electoral process. Performance issues could arise when handling large datasets.
+* **Security**: Although basic security measures were implemented, the system still relies on plain text for storing sensitive information, which is not suitable for a real-world application where data encryption and more sophisticated security protocols are necessary.
+* **User Interface**: The GUI, while functional, is quite basic and might not offer the best user experience for less technical users or in situations where quick data processing is required.
+
+## Conclusions
+
+### Application of Course Learnings:
+* **Data Structures**: Throughout the project, fundamental data structures like dictionaries and lists were extensively used to manage users and votes. These structures facilitated efficient data manipulation and retrieval operations, which are crucial for the real-time requirements of a voting system.
+* **File Handling**: The project provided a practical application of file handling in Python, teaching how to read from and write to files, which is crucial for data persistence. Handling data consistency when multiple sessions access the file simultaneously was particularly instructive.
+* **Exception Handling**: Implementing robust error and exception handling mechanisms to deal with potential runtime errors (like file access issues or data format problems) helped in making the application more reliable and user-friendly.
+* **Modular Programming**: The division of the project into different modules (admin and voter systems) demonstrated the importance of modular programming in making code more organized, manageable, and reusable.
+
+### Reflections:
+* This project not only allowed for the application of theoretical knowledge from the course into a practical, functioning program but also highlighted the importance of considering real-world constraints such as security and user accessibility in software development. It was a valuable exercise in seeing how even simple systems must carefully balance functionality, user experience, and data integrity.
+
+## Future Enhancements
+* To address these limitations, future versions could:
+   1. Integrate a database system for better scalability and security.
+   2. Employ encryption techniques for sensitive data to enhance security.
+   3. Improve the GUI for a better user experience and incorporate more interactive elements for real-time data updates.
+
    
