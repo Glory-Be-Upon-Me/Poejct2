@@ -47,12 +47,15 @@ To get started with the Advanced STV Voting System, follow these steps:
 * Open the application and click on the "Sign Up" button on the login page.
 * Fill in the username , password and role fields and click "Register".
 * Upon successful registration, you will be taken to your voting screen.
+
 ![image](https://github.com/Glory-Be-Upon-Me/Poejct2/assets/162085036/146bb6a5-7349-443a-86de-4b54234a8bc5)
 
 ## Logging In
 * If already registered, enter your username and password on the login screen and click "Login".
 * Once authenticated, you will be directed to the voting interface.
+
 ![image](https://github.com/Glory-Be-Upon-Me/Poejct2/assets/162085036/37fade1a-0426-424c-9f11-f148b37cde89)
+
 ![image](https://github.com/Glory-Be-Upon-Me/Poejct2/assets/162085036/b9e8bfc7-ef7f-43b1-b3de-25f58f017a6d)
 
 ## Voting
@@ -60,13 +63,16 @@ To get started with the Advanced STV Voting System, follow these steps:
 * Click "Cast Vote" to submit your vote.
 * Repeat until all candidates are exhausted; the system will prioritize the first votes while using your secondary, tertiary, etc. choices in the case that your favored candidate loses.
 * The system ensures that each user can only have one set of preferred candidates. Voting again will overwrite the previous votes.
+
 ![image](https://github.com/Glory-Be-Upon-Me/Poejct2/assets/162085036/c3c364aa-c80c-48ba-8c6d-e6bc05ff7c2c)
+
 ![image](https://github.com/Glory-Be-Upon-Me/Poejct2/assets/162085036/416208c4-3ed9-4af5-9398-1acd2fbfef67)
 
 ## Admin Panel
 * Admins can log in using their admin credentials.
 * The admin panel allows viewing detailed logs of all votes and managing candidates.
 * It also allows the admin to view the Real time voting results
+
 ![image](https://github.com/Glory-Be-Upon-Me/Poejct2/assets/162085036/6d458476-a73e-4c9e-86e0-9bcdeeb909d1)
 
    
