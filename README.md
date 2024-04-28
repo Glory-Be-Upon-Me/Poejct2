@@ -2,6 +2,9 @@
 
 The Advanced STV (Single Transferable Vote) Voting System is a robust, Python-based application designed to facilitate and manage electoral processes with a high level of security and user accessibility. This system leverages the tkinter library for its graphical user interface, offering a straightforward and intuitive interaction platform for both voters and administrators.
 
+## Goal 
+* The primary goal of the Advanced STV (Single Transferable Vote) Voting System is to provide a secure, transparent, and accessible platform for conducting elections using the Single Transferable Vote mechanism. This project aims to ensure that all participants can cast their votes in a secure environment where voter confidentiality and vote integrity are paramount. It seeks to prevent unauthorized access and vote manipulation through robust authentication and data handling procedures. Additionally, the system is designed to be user-friendly, allowing voters to easily register, log in, and vote without needing technical expertise. For administrators, the project aims to provide a comprehensive dashboard for managing the electoral process, including candidate management and real-time vote tallying. Ultimately, this voting system strives to enhance the democratic process by making voting more accessible, secure, and efficient, thus increasing voter turnout and trust in electoral outcomes.
+
 ## Features
 
 - **User Authentication**: Secure login and registration system to manage voter access.
