@@ -70,9 +70,12 @@ To get started with the Advanced STV Voting System, follow these steps:
 ![image](https://github.com/Glory-Be-Upon-Me/Poejct2/assets/162085036/416208c4-3ed9-4af5-9398-1acd2fbfef67)
 
 ## Admin Panel
-* Admins can log in using their admin credentials.
+* You can login to the Admin account using default credentials for admin. Username - admin , Password - password
 * The admin panel allows viewing detailed logs of all votes and managing candidates.
 * It also allows the admin to view the Real time voting results
+
+## Adding a candidate
+* Enter the desired name of the candidate to add and then press "Add Candidate".
 
 ![image](https://github.com/Glory-Be-Upon-Me/Poejct2/assets/162085036/6d458476-a73e-4c9e-86e0-9bcdeeb909d1)
 
